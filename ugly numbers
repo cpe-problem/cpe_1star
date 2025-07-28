@@ -1,0 +1,20 @@
+//uva-136
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    long long int two=1, three=1, five=1, x[1501];
+    x[1]=1;
+    for(int i=2;i<=1500;i++)
+    {
+        long long int n2=x[two]*2;
+        long long int n3=x[three]*3;
+        long long int n5=x[five]*5;
+        x[i]=min(n2, min(n3, n5));
+        if(x[i]==n2) two++;
+        if(x[i]==n3) three++;
+        if(x[i]==n5) five++;
+    }
+    cout << "The 1500'th ugly number is " << x[1500] << endl;
+}
